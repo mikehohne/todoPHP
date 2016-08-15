@@ -9,11 +9,13 @@ angular.module('todoApp').service('mainServ', function($http){
     })
   }
 
-  this.postTodosServ = function(){
+  this.postTodosServ = function(data){
     return $http({
       method:"POST",
       url: "ajax/addTask.php",
-      data: data
+      data: {
+        newTask: data
+      }
     }).then(function(response){
       console.log(response);
     })
