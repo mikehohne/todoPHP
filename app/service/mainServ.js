@@ -21,11 +21,14 @@ angular.module('todoApp').service('mainServ', function($http){
     })
   }
 
-  this.updateTodosServ = function(id,data){
+  this.updateTodosServ = function(id,task){
     return $http({
       method: "PUT",
-      url: "ajax/updateTask.php" + id,
-      data: data
+      url: "ajax/updateTask.php",
+      data: {
+        'updatedTask': task,
+        'id': id
+      }
     }).then(function(response){
       console.log(response);
     })

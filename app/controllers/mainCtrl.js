@@ -2,6 +2,8 @@ angular.module('todoApp').controller('mainCtrl', function($scope, mainServ){
 
   $scope.todos;
   $scope.id;
+  $scope.hide = true;
+  $scope.show = true;
 
   $scope.getTodos = function(){
     mainServ.getTodosServ()
@@ -22,7 +24,8 @@ angular.module('todoApp').controller('mainCtrl', function($scope, mainServ){
   $scope.updateTask = function(id,data){
     mainServ.updateTodosServ(id,data)
     .then(function(response){
-      console.log(response);
+      $scope.getTodos();
+      $scope.hide = true;
     })
   }
 
@@ -32,6 +35,12 @@ angular.module('todoApp').controller('mainCtrl', function($scope, mainServ){
       $scope.getTodos();
       console.log(response);
     })
+  }
+
+  $scope.showUpdateFields = function(){
+    $scope.show = false;
+    $scope.hide = false;
+    console.log("working?");
   }
 
 
