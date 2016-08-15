@@ -2,10 +2,20 @@
 
   include './db.php';
 
-  $data = json_decode(file_get_contents("php://input"));
+  $data = file_get_contents('php://input');
 
-  $task = mysql_real_escape_string($data -> tasks);
+  $resultData = json_decode($data);
 
-  $mysqli_query("INSERT INTO todo('tasks') VALUES ('$data')");
+  $newTodo = $resultData -> newTask;
+
+  $sql = "INSERT INTO todo(tasks) VALUES('$newTodo')";
+
+  mysqli_query($con,$sql);
+
+
+  // $sql = "INSERT INTO todo(tasks) VALUES('$resultData')";
+
+
+
 
  ?>

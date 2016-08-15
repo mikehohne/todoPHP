@@ -9,19 +9,19 @@ angular.module('todoApp').service('mainServ', function($http){
     })
   }
 
-  this.postTodosServ = function(data){
+  this.postTodosServ = function(task){
     return $http({
       method:"POST",
       url: "ajax/addTask.php",
       data: {
-        newTask: data
+        newTask: task
       }
     }).then(function(response){
-      console.log(response);
+      return response.data;
     })
   }
 
-  this.updateTodosServ = function(id){
+  this.updateTodosServ = function(id,data){
     return $http({
       method: "PUT",
       url: "ajax/updateTask.php" + id,
@@ -34,7 +34,10 @@ angular.module('todoApp').service('mainServ', function($http){
   this.deleteTodosServ = function(id){
     return $http({
     method: "DELETE",
-    url: "ajax/deleteTask.php" + id
+    url: "ajax/deleteTask.php",
+    data: {
+      'id': id
+    }
   }).then(function(response){
     console.log(response);
   })

@@ -20,12 +20,13 @@
       <input class="form-control" type="text" name="name" value="" ng-model="newTask">
       <!-- <input class="form-control" type="text" name="name" value=""> -->
       <!-- <input class="form-control" type="text" name="name" value=""> -->
-      <input class="btn btn-primary" type="submit" name="name" value="Add Chore">
+      <center><input class="btn btn-primary" type="submit" name="name" value="Add Chore"></center>
     </form>
+    <hr>
   </div>
 
   <div class="container" ng-repeat="todo in todos">
-    {{todo.tasks}}
+    <h3>{{todo.tasks | uppercase}} <button type="button" class="btn btn-primary" ng-click ="deleteTask(todo.id)">X</button></h3>
   </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
