@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="./css/style.css" media="screen" title="no title" charset="utf-8">
+<body ng-controller="mainCtrl">
+
+  <header class="container">
+    <h1 class="navbar-text">Mike's Todo Application</h1>
+  </header>
+  <div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <form class="form-group" ng-submit="getTodos()">
+      <input class="form-control" type="text" name="name" value="">
+      <!-- <input class="form-control" type="text" name="name" value=""> -->
+      <!-- <input class="form-control" type="text" name="name" value=""> -->
+      <input class="btn btn-primary" type="submit" name="name" value="Add Chore">
+    </form>
+  </div>
+
+  <div class="container" ng-repeat="todo in todos">
+    {{todo.tasks}}
+  </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script src="./app/app.js" charset="utf-8"></script>
+<script src="./app/controllers/mainCtrl.js" charset="utf-8"></script>
+<script src="./app/service/mainServ.js" charset="utf-8"></script>
+
+
+
+
+</body>
+</html>
