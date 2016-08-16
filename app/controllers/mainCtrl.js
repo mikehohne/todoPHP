@@ -16,6 +16,7 @@ angular.module('todoApp').controller('mainCtrl', function($scope, mainServ){
   $scope.postTodos = function(task){
     mainServ.postTodosServ(task)
     .then(function(response){
+      $scope.newTask = "";
       $scope.getTodos();
       console.log(response);
     })
@@ -40,7 +41,13 @@ angular.module('todoApp').controller('mainCtrl', function($scope, mainServ){
   $scope.showUpdateFields = function(){
     $scope.show = false;
     $scope.hide = false;
-    console.log("working?");
+  }
+
+  $scope.clearAllTasks = function(){
+    mainServ.clearAllTasksServ()
+    .then(function(response){
+      $scope.getTodos();
+    })
   }
 
 

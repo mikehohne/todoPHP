@@ -10,9 +10,6 @@ include "./db.php";
 
   $dataId = $resultData -> id;
 
-  print_r ($updateTask);
-
-
 
   $sql = "UPDATE todo SET tasks='$updateTask' WHERE id='$dataId'";
 

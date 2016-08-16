@@ -18,19 +18,19 @@
     <br>
     <form class="form-group" ng-submit="postTodos(newTask)">
       <input class="form-control" type="text" name="name" value="" ng-model="newTask">
-      <!-- <input class="form-control" type="text" name="name" value=""> -->
-      <!-- <input class="form-control" type="text" name="name" value=""> -->
+      <br>
       <center><input class="btn btn-primary" type="submit" name="name" value="Add Chore"></center>
     </form>
     <button type="button" class="btn btn-primary" ng-show=true ng-click="showUpdateFields()">Update</button>
+    <button type="button" class="btn btn-primary" ng-show=true ng-click="clearAllTasks()">Clear All</button>
     <hr>
   </div>
 
   <div class="container" ng-repeat="todo in todos">
     <h3>{{todo.tasks | uppercase}} <button type="button" class="btn btn-primary" ng-click ="deleteTask(todo.id)">X</button></h3>
     <div class="" ng-hide=hide>
-      <input class="form-control" type="text" name="name" ng-model="updatedTask">
-      <button class="btn btn-primary" ng-click=updateTask(todo.id,updatedTask)>Update</button>
+      <input class="form-control" type="text" name="name" ng-model="todo.tasks">
+      <button class="btn btn-primary" ng-click=updateTask(todo.id,todo.tasks)>Update</button>
     </div>
   </div>
 

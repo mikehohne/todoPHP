@@ -46,5 +46,12 @@ angular.module('todoApp').service('mainServ', function($http){
   })
 }
 
+  this.clearAllTasksServ = function(){
+    return $http({
+      method: "DELETE",
+      url: "ajax/clearTasks.php"
+    })
+  }
+
 
 });
